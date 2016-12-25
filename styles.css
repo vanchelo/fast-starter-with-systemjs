@@ -1,0 +1,12 @@
+body {
+  background-color: #0a474f;
+  color: #fff;
+}
+
+#root {
+  margin: 10px;
+}
+
+pre {
+  margin: 0;
+}

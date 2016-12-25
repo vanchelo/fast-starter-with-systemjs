@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fast Starter With System[JS]</title>
+</head>
+<body>
+
+<div id="root">Loading...</div>
+
+<script src="node_modules/systemjs/dist/system.js"></script>
+<script>
+  System.config({
+    defaultJSExtensions: false,
+    paths: {
+      'app': 'app',
+      'app/*': 'app/*',
+      '*': 'node_modules/*'
+    },
+    map: {
+      css: 'systemjs-plugin-css/css.js'
+    },
+    meta: {
+      '*.css': { loader: 'css' }
+    },
+    packageConfigPaths: ['./node_modules/*/package.json'],
+    packages: {
+      app: {
+        main: './index.js',
+        defaultExtension: 'js'
+      }
+    }
+  })
+
+  System.import('app').catch(function (e) {
+    console.error('Internal Error', e);
+  });
+</script>
+</body>
+</html>
